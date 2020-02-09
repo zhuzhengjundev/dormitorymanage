@@ -59,6 +59,7 @@ public class MyFragment extends Fragment {
             imageView.setImageResource(R.drawable.admin);
             textView.setText("管理员："+user.getManag_name());
             getActivity().findViewById(R.id.myFragment_ziliaoxiugai).setVisibility(View.GONE);
+            getActivity().findViewById(R.id.myFragment_pwdUpdate).setVisibility(View.GONE);
         }else{
             imageView.setImageResource(R.drawable.student);
             textView.setText("学生："+user.getStu_name());
