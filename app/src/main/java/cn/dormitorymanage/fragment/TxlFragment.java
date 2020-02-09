@@ -82,7 +82,11 @@ public class TxlFragment extends Fragment {
             }else {
                 url = "queryThisDormitoryStudent";
                 jsonObject.put("stu_dormitoryid", user.getStu_dormitoryid());
-                tung = user.getStu_dormitoryid().substring(0, 1);
+                if (user.getStu_dormitoryid().length() > 2) {
+                    tung = user.getStu_dormitoryid().substring(0, 1);
+                }else{
+                    tung = "0";
+                }
             }
             HttpRequest.postJSONArray(url, jsonObject, new Response.Listener<JSONArray>() {
                 @Override

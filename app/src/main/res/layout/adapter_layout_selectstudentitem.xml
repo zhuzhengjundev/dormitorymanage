@@ -41,6 +41,17 @@
             android:layout_weight="1"
             android:layout_height="match_parent" />
 
+        <TextView
+            android:id="@+id/selectStudentItem_ok"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#fff"
+            android:background="@drawable/ok_background"/>
+
     </LinearLayout>
 
 </LinearLayout>

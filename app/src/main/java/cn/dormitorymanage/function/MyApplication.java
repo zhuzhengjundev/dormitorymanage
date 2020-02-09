@@ -13,6 +13,7 @@ public class MyApplication extends Application {
     public static Context mContext;
 
     public static String ipLocation = "192.168.5.22:8181";
+//    public static String ipLocation = "111.229.14.77:8888";
 
     @Override
     public void onCreate() {

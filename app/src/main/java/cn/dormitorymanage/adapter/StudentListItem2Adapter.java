@@ -47,13 +47,18 @@ public class StudentListItem2Adapter extends ArrayAdapter<StudentListItem> {
             viewHolder.textView_name = view.findViewById(R.id.selectStudentItem_name);
             viewHolder.textView_age = view.findViewById(R.id.selectStudentItem_age);
             viewHolder.spinner = view.findViewById(R.id.selectStudentItem_dormitoryid);
+            viewHolder.textView_ok = view.findViewById(R.id.selectStudentItem_ok);
             view.setTag(viewHolder);
         } else {
             view = convertView;
             viewHolder = (StudentListItem2Adapter.ViewHolder) view.getTag();
         }
         viewHolder.textView_name.setText(studentListItem.getStu_name() + "(" + studentListItem.getStu_id() + ")");
-        viewHolder.textView_age.setText(studentListItem.getStu_age() + "岁");
+        if (studentListItem.getStu_age().trim().equals("")) {
+            viewHolder.textView_age.setText("未知");
+        }else{
+            viewHolder.textView_age.setText(studentListItem.getStu_age() + "岁");
+        }
         arrayAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_item, stringList);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
         viewHolder.spinner.setAdapter(arrayAdapter);
@@ -64,16 +69,26 @@ public class StudentListItem2Adapter extends ArrayAdapter<StudentListItem> {
         }
         viewHolder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int p, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, final int i, long id) {
+                studentListItemList.get(position).setStu_dormitoryid(stringList.get(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        viewHolder.textView_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 try {
-                    HttpRequest.postJSONObject("updateStudentDormitory", new JSONObject("{\"stu_id\":\"" + studentListItemList.get(position).getStu_id() + "\",\"stu_dormitoryid\":\"" + stringList.get(p) + "\"}"), new Response.Listener<JSONObject>() {
+                    HttpRequest.postJSONObject("updateStudentDormitory", new JSONObject("{\"stu_id\":\"" + studentListItemList.get(position).getStu_id() + "\",\"stu_dormitoryid\":\"" + studentListItemList.get(position).getStu_dormitoryid() + "\"}"), new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
                             try {
-                                if(jsonObject.getString("isOk").equals("true")){
+                                if (jsonObject.getString("isOk").equals("true")) {
                                     Toast.makeText(getContext(), "更新成功", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(getContext(), "更新失败", Toast.LENGTH_SHORT).show();
+                                } else {
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -84,11 +99,6 @@ public class StudentListItem2Adapter extends ArrayAdapter<StudentListItem> {
                     e.printStackTrace();
                 }
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
         });
 
         return view;
@@ -98,5 +108,7 @@ public class StudentListItem2Adapter extends ArrayAdapter<StudentListItem> {
         TextView textView_name;
         TextView textView_age;
         Spinner spinner;
+        TextView textView_ok;
     }
+
 }

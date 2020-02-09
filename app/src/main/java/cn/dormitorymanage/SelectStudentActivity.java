@@ -45,6 +45,7 @@ public class SelectStudentActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        stringList.add("请选择");
         listView = findViewById(R.id.selectStudentActivity_ListView);
         studentListItem2Adapter = new StudentListItem2Adapter(SelectStudentActivity.this, R.layout.adapter_layout_selectstudentitem, studentListItemList, stringList);
         listView.setAdapter(studentListItem2Adapter);
