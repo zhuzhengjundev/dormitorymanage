@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/shiwuzhaolingItem_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#333"
+                android:textSize="16dp"
+                android:text="标题：" />
+
+            <TextView
+                android:id="@+id/shiwuzhaolingItem_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:text="标题标题标题标题标题标题标题标题标题 "/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#333"
+                android:textSize="16dp"
+                android:text="内容：" />
+
+            <TextView
+                android:id="@+id/shiwuzhaolingItem_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textColor="#333"
+                android:textSize="16dp"
+                android:text="联系方式：" />
+
+            <TextView
+                android:id="@+id/shiwuzhaolingItem_phoneNum"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:text="12415151"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textColor="#333"
+                android:textSize="16dp"
+                android:text="状态：" />
+
+            <TextView
+                android:id="@+id/shiwuzhaolingItem_start"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:text="12415151"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textColor="#333"
+                android:textSize="16dp"
+                android:text="时间：" />
+
+            <TextView
+                android:id="@+id/shiwuzhaolingItem_time"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16dp"
+                android:text="12415151"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
