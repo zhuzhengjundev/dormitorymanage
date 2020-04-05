@@ -51,6 +51,7 @@ public class StudentListItemAdapter extends ArrayAdapter<StudentListItem> {
                 intent.putExtra("stu_nativeplace", studentListItemList.get(position).getStu_nativeplace());
                 intent.putExtra("stu_major", studentListItemList.get(position).getStu_major());
                 intent.putExtra("stu_hobby", studentListItemList.get(position).getStu_hobby());
+                intent.putExtra("stu_phone", studentListItemList.get(position).getStu_phone());
                 intent.putExtra("stu_dormitoryid", studentListItemList.get(position).getStu_dormitoryid());
                 mContext.startActivity(intent);
             }

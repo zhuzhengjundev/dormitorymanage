@@ -33,10 +33,13 @@ public class SongshuiAddActivity extends AppCompatActivity {
     String dormitory_id = "";
     EditText editText_num;
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_songshui_add);
+        user = new User(SongshuiAddActivity.this);
         findViewById(R.id.songshuiaddActivity_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +72,7 @@ public class SongshuiAddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String num = editText_num.getText().toString().trim();
                 try {
-                    HttpRequest.postJSONObject("addWater", new JSONObject("{\"water_dormitoryid\":\"" + dormitory_id + "\",\"water_num\":\"" + num + "\",\"water_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\"}"), new Response.Listener<JSONObject>() {
+                    HttpRequest.postJSONObject("addWater", new JSONObject("{\"water_stuid\":\"" + user.getStu_id() + "\",\"water_dormitoryid\":\"" + dormitory_id + "\",\"water_num\":\"" + num + "\",\"water_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\",\"water_stat\":\"未送达\"}"), new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
                             try {

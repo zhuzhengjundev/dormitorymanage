@@ -12,9 +12,10 @@ public class StudentListItem {
     private String stu_nativeplace;
     private String stu_major;
     private String stu_hobby;
+    private String stu_phone;
     private String stu_dormitoryid;
 
-    public StudentListItem(String stu_id, String stu_name, String stu_gender, String stu_img, String stu_age, String stu_nativeplace, String stu_major, String stu_hobby, String stu_dormitoryid) {
+    public StudentListItem(String stu_id, String stu_name, String stu_gender, String stu_img, String stu_age, String stu_nativeplace, String stu_major, String stu_hobby, String stu_phone, String stu_dormitoryid) {
         this.stu_id = stu_id;
         this.stu_name = stu_name;
         this.stu_gender = stu_gender;
@@ -23,6 +24,7 @@ public class StudentListItem {
         this.stu_nativeplace = stu_nativeplace;
         this.stu_major = stu_major;
         this.stu_hobby = stu_hobby;
+        this.stu_phone = stu_phone;
         this.stu_dormitoryid = stu_dormitoryid;
     }
 
@@ -88,6 +90,14 @@ public class StudentListItem {
 
     public void setStu_hobby(String stu_hobby) {
         this.stu_hobby = stu_hobby;
+    }
+
+    public String getStu_phone() {
+        return stu_phone;
+    }
+
+    public void setStu_phone(String stu_phone) {
+        this.stu_phone = stu_phone;
     }
 
     public String getStu_dormitoryid() {

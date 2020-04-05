@@ -61,7 +61,7 @@ public class MyDataUpdateActivity extends AppCompatActivity {
 
     private ImageView imageView_img;
     private TextView textView_id,textView_name,textView_gender, textView_dormitoryid;
-    private EditText editText_age,editText_nativeplace,editText_major, editText_hobby;
+    private EditText editText_age,editText_nativeplace,editText_major, editText_hobby, editText_phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +129,12 @@ public class MyDataUpdateActivity extends AppCompatActivity {
         editText_nativeplace = findViewById(R.id.mydataupdateActivity_nativeplace);
         editText_major = findViewById(R.id.mydataupdateActivity_major);
         editText_hobby = findViewById(R.id.mydataupdateActivity_hobby);
+        editText_phone = findViewById(R.id.mydataupdateActivity_phone);
         editText_age.setText(user.getStu_age());
         editText_nativeplace.setText(user.getStu_nativeplace());
         editText_major.setText(user.getStu_major());
         editText_hobby.setText(user.getStu_hobby());
+        editText_phone.setText(user.getStu_phone());
     }
 
     private Handler handler=new Handler(){
@@ -161,6 +163,7 @@ public class MyDataUpdateActivity extends AppCompatActivity {
         final String nativeplace = editText_nativeplace.getText().toString().trim();
         final String major = editText_major.getText().toString().trim();
         final String hobby = editText_hobby.getText().toString().trim();
+        final String phone = editText_phone.getText().toString().trim();
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("stu_id", user.getStu_id());
@@ -173,6 +176,7 @@ public class MyDataUpdateActivity extends AppCompatActivity {
             jsonObject.put("stu_major", major);
             jsonObject.put("stu_hobby", hobby);
             jsonObject.put("stu_dormitoryid", user.getStu_dormitoryid());
+            jsonObject.put("stu_phone", phone);
             HttpRequest.postJSONObject("updateStudent", jsonObject, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jsonObject) {
@@ -183,6 +187,7 @@ public class MyDataUpdateActivity extends AppCompatActivity {
                             user.setStu_nativeplace(nativeplace);
                             user.setStu_major(major);
                             user.setStu_hobby(hobby);
+                            user.setStu_phone(phone);
                             Toast.makeText(MyDataUpdateActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                             finish();
                         }
@@ -194,7 +199,6 @@ public class MyDataUpdateActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public void showChoosePicDialog(View v) {

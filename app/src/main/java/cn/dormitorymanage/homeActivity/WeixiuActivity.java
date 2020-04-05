@@ -28,11 +28,13 @@ public class WeixiuActivity extends AppCompatActivity {
     private WeixiuItem weixiuItem;
     private List<WeixiuItem> weixiuItemList = new ArrayList<>();
     private WeixiuItemAdapter weixiuItemAdapter;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weixiu);
+        user = new User(WeixiuActivity.this);
         findViewById(R.id.weixiuActivity_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +52,7 @@ public class WeixiuActivity extends AppCompatActivity {
 
     private void initView() {
         listView = findViewById(R.id.weixiuActivity_listView);
-        weixiuItemAdapter = new WeixiuItemAdapter(WeixiuActivity.this, R.layout.adapter_layout_weixiuitem, weixiuItemList);
+        weixiuItemAdapter = new WeixiuItemAdapter(WeixiuActivity.this, R.layout.adapter_layout_weixiuitem, weixiuItemList,user);
         listView.setAdapter(weixiuItemAdapter);
     }
 
@@ -77,7 +79,7 @@ public class WeixiuActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             if(jsonObject.getString("repair_dormitoryid").substring(0, 1).equals(tung)){
-                                weixiuItem = new WeixiuItem(jsonObject.getString("repair_dormitoryid"), jsonObject.getString("repair_name"), jsonObject.getString("repair_remark"), jsonObject.getString("repair_time"));
+                                weixiuItem = new WeixiuItem(jsonObject.getString("repair_id"), jsonObject.getString("repair_stuid"), jsonObject.getString("repair_dormitoryid"), jsonObject.getString("repair_name"), jsonObject.getString("repair_remark"), jsonObject.getString("repair_time"), jsonObject.getString("repair_stat"));
                                 weixiuItemList.add(weixiuItem);
                                 weixiuItemAdapter.notifyDataSetChanged();
                             }

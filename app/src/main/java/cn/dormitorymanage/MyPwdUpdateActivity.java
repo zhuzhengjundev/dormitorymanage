@@ -55,6 +55,7 @@ public class MyPwdUpdateActivity extends AppCompatActivity {
                         jsonObject.put("stu_nativeplace", user.getStu_nativeplace());
                         jsonObject.put("stu_major", user.getStu_major());
                         jsonObject.put("stu_hobby", user.getStu_hobby());
+                        jsonObject.put("stu_phone", user.getStu_phone());
                         jsonObject.put("stu_dormitoryid", user.getStu_dormitoryid());
                         HttpRequest.postJSONObject("updateStudent", jsonObject, new Response.Listener<JSONObject>() {
                             @Override

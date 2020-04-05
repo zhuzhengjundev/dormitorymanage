@@ -12,8 +12,8 @@ public class MyApplication extends Application {
     public static RequestQueue queue;
     public static Context mContext;
 
-    public static String ipLocation = "192.168.5.22:8181";
-//    public static String ipLocation = "111.229.14.77:8888";
+    public static String ipLocation = "192.168.5.11:8088";
+//    public static String ipLocation = "47.115.153.7:8181";
 
     @Override
     public void onCreate() {

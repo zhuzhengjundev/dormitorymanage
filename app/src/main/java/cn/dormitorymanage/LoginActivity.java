@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                                         user.setStu_nativeplace(jsonObject.getString("stu_nativeplace"));
                                         user.setStu_major(jsonObject.getString("stu_major"));
                                         user.setStu_hobby(jsonObject.getString("stu_hobby"));
+                                        user.setStu_phone(jsonObject.getString("stu_phone"));
                                         user.setStu_dormitoryid(jsonObject.getString("stu_dormitoryid"));
                                     } catch (JSONException e) {
                                         e.printStackTrace();

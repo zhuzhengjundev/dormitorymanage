@@ -17,6 +17,7 @@ import cn.dormitorymanage.LoginActivity;
 import cn.dormitorymanage.MyDataUpdateActivity;
 import cn.dormitorymanage.MyPwdUpdateActivity;
 import cn.dormitorymanage.R;
+import cn.dormitorymanage.SelectWeixiuShifuActivity;
 import cn.dormitorymanage.function.User;
 
 public class MyFragment extends Fragment {
@@ -55,6 +56,13 @@ public class MyFragment extends Fragment {
             }
         });
 
+        getActivity().findViewById(R.id.myFragment_selectWeixiushifu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), SelectWeixiuShifuActivity.class));
+            }
+        });
+
         if(user.getIsAdmin()){
             imageView.setImageResource(R.drawable.admin);
             textView.setText("管理员："+user.getManag_name());
@@ -63,6 +71,7 @@ public class MyFragment extends Fragment {
         }else{
             imageView.setImageResource(R.drawable.student);
             textView.setText("学生："+user.getStu_name());
+            getActivity().findViewById(R.id.myFragment_selectWeixiushifu).setVisibility(View.GONE);
         }
 
         getActivity().findViewById(R.id.myFragment_out).setOnClickListener(new View.OnClickListener() {
@@ -86,6 +95,7 @@ public class MyFragment extends Fragment {
                         user.setStu_major("");
                         user.setStu_dormitoryid("");
                         user.setStu_hobby("");
+                        user.setStu_phone("");
                         user.setStu_age("");
                         user.setStu_nativeplace("");
                         user.setStu_img("");

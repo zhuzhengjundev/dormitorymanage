@@ -33,10 +33,13 @@ public class WeixiuAddActivity extends AppCompatActivity {
     String dormitory_id = "";
     EditText textView_name, textView_remark;
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weixiu_add);
+        user = new User(WeixiuAddActivity.this);
         findViewById(R.id.weixiuaddActivity_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +73,7 @@ public class WeixiuAddActivity extends AppCompatActivity {
                 String name = textView_name.getText().toString().trim();
                 String remark = textView_remark.getText().toString().trim();
                 try {
-                    HttpRequest.postJSONObject("addRepair", new JSONObject("{\"visitor_dormitoryid\":\"" + dormitory_id + "\",\"visitor_name\":\"" + name + "\",\"visitor_remark\":\"" + remark + "\",\"visitor_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\"}"), new Response.Listener<JSONObject>() {
+                    HttpRequest.postJSONObject("addRepair", new JSONObject("{\"visitor_stuid\":\"" + user.getStu_id() + "\",\"visitor_dormitoryid\":\"" + dormitory_id + "\",\"visitor_name\":\"" + name + "\",\"visitor_remark\":\"" + remark + "\",\"visitor_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\",\"visitor_stat\":\"未维修\"}"), new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject jsonObject) {
                             try {

@@ -162,7 +162,7 @@ public class ShiwuzhaolingAddActivity extends AppCompatActivity {
         String content = editText_content.getText().toString().trim();
         String phoneNum = editText_phoneNum.getText().toString().trim();
         try {
-            HttpRequest.postJSONObject("addLostarticle", new JSONObject("{\"lostarticle_title\":\"" + title + "\",\"lostarticle_content\":\"" + content + "\",\"lostarticle_img\":\"" + userTitleImgUrl + "\",\"lostarticle_phonenumber\":\"" + phoneNum + "\",\"lostarticle_stat\":\"" + lostarticle_stat + "\",\"lostarticle_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\"}"), new Response.Listener<JSONObject>() {
+            HttpRequest.postJSONObject("addLostarticle", new JSONObject("{\"lostarticle_stuid\":\"" + user.getStu_id() + "\",\"lostarticle_title\":\"" + title + "\",\"lostarticle_content\":\"" + content + "\",\"lostarticle_img\":\"" + userTitleImgUrl + "\",\"lostarticle_phonenumber\":\"" + phoneNum + "\",\"lostarticle_stat\":\"" + lostarticle_stat + "\",\"lostarticle_time\":\"" + new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(System.currentTimeMillis())) + "\"}"), new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jsonObject) {
                     try {

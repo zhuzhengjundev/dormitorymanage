@@ -2,6 +2,7 @@ package cn.dormitorymanage.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,7 +97,7 @@ public class TxlFragment extends Fragment {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             if (jsonObject.getString("stu_dormitoryid").length() > 2) {
                                 if(jsonObject.getString("stu_dormitoryid").substring(0, 1).equals(tung)){
-                                    studentListItem = new StudentListItem(jsonObject.getString("stu_id"), jsonObject.getString("stu_name"), jsonObject.getString("stu_gender"), jsonObject.getString("stu_img"), jsonObject.getString("stu_age"), jsonObject.getString("stu_nativeplace"), jsonObject.getString("stu_major"), jsonObject.getString("stu_hobby"), jsonObject.getString("stu_dormitoryid"));
+                                    studentListItem = new StudentListItem(jsonObject.getString("stu_id"), jsonObject.getString("stu_name"), jsonObject.getString("stu_gender"), jsonObject.getString("stu_img"), jsonObject.getString("stu_age"), jsonObject.getString("stu_nativeplace"), jsonObject.getString("stu_major"), jsonObject.getString("stu_hobby"), jsonObject.getString("stu_phone"), jsonObject.getString("stu_dormitoryid"));
                                     studentListItemList.add(studentListItem);
                                     studentListItemAdapter.notifyDataSetChanged();
                                 }
@@ -108,6 +109,7 @@ public class TxlFragment extends Fragment {
                 }
             },null);
         } catch (JSONException e) {
+            Log.d("错误", e.getMessage());
             e.printStackTrace();
         }
     }

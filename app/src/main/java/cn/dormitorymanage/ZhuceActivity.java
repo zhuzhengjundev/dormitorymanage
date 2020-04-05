@@ -1,6 +1,7 @@
 package cn.dormitorymanage;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,7 +67,7 @@ public class ZhuceActivity extends AppCompatActivity {
 
         findViewById(R.id.zhuceActivity_zhuce).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 String id = editText_id.getText().toString().trim();
                 String pwd = editText_pwd.getText().toString().trim();
                 String name = editText_name.getText().toString().trim();
@@ -87,7 +89,12 @@ public class ZhuceActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 }
-                            },null);
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError volleyError) {
+                                    Log.d("查看", volleyError.toString());
+                                }
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

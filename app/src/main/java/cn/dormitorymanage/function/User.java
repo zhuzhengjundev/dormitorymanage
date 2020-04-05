@@ -160,4 +160,14 @@ public class User {
         editor.putString("stu_dormitoryid", stu_dormitoryid);
         editor.apply();
     }
+
+    public String getStu_phone() {
+        return context.getSharedPreferences("Users", Context.MODE_PRIVATE).getString("stu_phone", "");
+    }
+
+    public void setStu_phone(String stu_phone) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("Users", Context.MODE_PRIVATE).edit();
+        editor.putString("stu_phone", stu_phone);
+        editor.apply();
+    }
 }

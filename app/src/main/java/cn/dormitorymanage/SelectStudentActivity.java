@@ -62,7 +62,7 @@ public class SelectStudentActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             if(jsonObject.getString("stu_gender").trim().equals(user.getManag_manag_xb().trim())){
-                                studentListItem = new StudentListItem(jsonObject.getString("stu_id"), jsonObject.getString("stu_name"), jsonObject.getString("stu_gender"), jsonObject.getString("stu_img"), jsonObject.getString("stu_age"), jsonObject.getString("stu_nativeplace"), jsonObject.getString("stu_major"), jsonObject.getString("stu_hobby"), jsonObject.getString("stu_dormitoryid"));
+                                studentListItem = new StudentListItem(jsonObject.getString("stu_id"), jsonObject.getString("stu_name"), jsonObject.getString("stu_gender"), jsonObject.getString("stu_img"), jsonObject.getString("stu_age"), jsonObject.getString("stu_nativeplace"), jsonObject.getString("stu_major"), jsonObject.getString("stu_hobby"), jsonObject.getString("stu_phone"), jsonObject.getString("stu_dormitoryid"));
                                 studentListItemList.add(studentListItem);
                                 studentListItem2Adapter.notifyDataSetChanged();
                             }

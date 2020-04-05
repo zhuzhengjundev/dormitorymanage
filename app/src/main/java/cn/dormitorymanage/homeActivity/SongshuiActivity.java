@@ -23,8 +23,8 @@ import cn.dormitorymanage.function.HttpRequest;
 import cn.dormitorymanage.function.User;
 
 public class SongshuiActivity extends AppCompatActivity {
-    User user = new User(SongshuiActivity.this);
 
+    private User user;
     private ListView listView;
     private SongshuiItem songshuiItem;
     private List<SongshuiItem> songshuiItemList = new ArrayList<>();
@@ -34,6 +34,7 @@ public class SongshuiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_songshui);
+        user = new User(SongshuiActivity.this);
         findViewById(R.id.songshuiActivity_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +55,7 @@ public class SongshuiActivity extends AppCompatActivity {
 
     private void initView() {
         listView = findViewById(R.id.songshuiActivity_listView);
-        songshuiItemAdapter = new SongshuiItemAdapter(SongshuiActivity.this, R.layout.adapter_layout_songshuiitem, songshuiItemList);
+        songshuiItemAdapter = new SongshuiItemAdapter(SongshuiActivity.this, R.layout.adapter_layout_songshuiitem, songshuiItemList,user);
         listView.setAdapter(songshuiItemAdapter);
     }
 
@@ -82,7 +83,7 @@ public class SongshuiActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             if(jsonObject.getString("water_dormitoryid").substring(0, 1).equals(tung)){
-                                songshuiItem = new SongshuiItem(jsonObject.getString("water_dormitoryid"),jsonObject.getString("water_num"),jsonObject.getString("water_time"));
+                                songshuiItem = new SongshuiItem(jsonObject.getString("water_id"),jsonObject.getString("water_stuid"),jsonObject.getString("water_dormitoryid"),jsonObject.getString("water_num"),jsonObject.getString("water_time"),jsonObject.getString("water_stat"));
                                 songshuiItemList.add(songshuiItem);
                                 songshuiItemAdapter.notifyDataSetChanged();
                             }
